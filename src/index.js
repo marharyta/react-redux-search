@@ -8,7 +8,7 @@ class App extends React.Component {
     this.state = { coworkings: [] };
   }
   componentDidMount() {
-    fetch('https://api.myjson.com/bins/11sr9q', {
+    fetch('https://api.myjson.com/bins/nwxou', {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
@@ -17,6 +17,7 @@ class App extends React.Component {
       .then(res => res.json())
       .then(res => {
         console.log(res);
+        this.setState({ coworkings: res.coworkings });
       })
       .catch(error => {
         console.log(error);
@@ -24,7 +25,13 @@ class App extends React.Component {
   }
 
   render() {
-    return <div> Hello, world! </div>;
+    return (
+      <ul>
+        {this.state.coworkings.map(i => {
+          return <li key={i.id}>{i.title} </li>;
+        })}
+      </ul>
+    );
   }
 }
 
