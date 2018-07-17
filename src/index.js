@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
 import './css/main.css';
 
 class App extends React.Component {
@@ -35,6 +36,11 @@ class App extends React.Component {
   }
 }
 
+const StyledApp = styled(App)`
+  color: palevioletred;
+  font-weight: bold;
+`;
+
 const rootElement = document.getElementById('root');
 
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<StyledApp />, rootElement);
