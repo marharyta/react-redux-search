@@ -27,7 +27,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <ul>
+      <ul className={this.props.className}>
         {this.state.coworkings.map(i => {
           return (
             <li key={i.id}>
