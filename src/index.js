@@ -29,7 +29,24 @@ class App extends React.Component {
     return (
       <ul>
         {this.state.coworkings.map(i => {
-          return <li key={i.id}>{i.title} </li>;
+          return (
+            <li key={i.id}>
+              <img src={i.image} alt={'alt'} />
+              <h2> {i.title} </h2>
+              <p> website: {i.website}</p>
+              <div>
+                {i.address.map(a => {
+                  return (
+                    <p key={a.id}>
+                      {`address ${a.street}, ${a.postcode}, ${a.city}, ${
+                        a.country
+                      } `}
+                    </p>
+                  );
+                })}
+              </div>
+            </li>
+          );
         })}
       </ul>
     );
